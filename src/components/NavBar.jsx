@@ -5,9 +5,14 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useNavigate } from 'react-router-dom';
 
 
 export const NavBar = () => {
+  const navigation = useNavigate();
+  const onClickLogin = () => navigation('/login');
+  const onClickSignUp = () => navigation('/signup');
+  
   return (
     <Box>
       <AppBar position='static'>
@@ -37,8 +42,17 @@ export const NavBar = () => {
             color='secondary'
             variant='contained'
             //sx={"background-color:red;"}という風にもできる
+            onClick={onClickLogin}
           >
             Login
+          </Button>
+          <Button 
+            color='secondary'
+            variant='contained'
+            //sx={"background-color:red;"}という風にもできる
+            onClick={onClickSignUp}
+          >
+            Sign up
           </Button>
         </Toolbar>
       </AppBar>
